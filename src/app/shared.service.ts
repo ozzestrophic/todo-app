@@ -7,6 +7,8 @@ import {
   deleteDoc,
   doc,
   updateDoc,
+  orderBy,
+  query,
 } from '@angular/fire/firestore';
 import { Item } from './item';
 
@@ -17,26 +19,29 @@ export class SharedService {
   constructor(private fs: Firestore) {}
   getItems() {
     let todosCollection = collection(this.fs, 'todos');
-    return collectionData(todosCollection, { idField: 'id' });
+    let todosOrdered = query(todosCollection, orderBy('time', 'desc'));
+    return collectionData(todosOrdered, { idField: 'id' });
   }
 
-  addItem(newItem: Item) {
-    let data = { description: newItem.description, done: false };
+  fireAddItem(newItem: Item) {
+    let data = {
+      ...newItem,
+    };
     let todosCollection = collection(this.fs, 'todos');
     return addDoc(todosCollection, data);
   }
 
-  deleteItem(id: string) {
+  fireDeleteItem(id: string) {
     let docRef = doc(this.fs, 'todos/' + id);
     return deleteDoc(docRef);
   }
 
-  editItem(id: string, description: string) {
+  fireEditItem(id: string, description: string) {
     let docRef = doc(this.fs, 'todos/' + id);
     return updateDoc(docRef, { description });
   }
 
-  toggleItem(id: string, done: boolean) {
+  fireToggleItem(id: string, done: boolean) {
     let docRef = doc(this.fs, 'todos/' + id);
     return updateDoc(docRef, { done: !done });
   }

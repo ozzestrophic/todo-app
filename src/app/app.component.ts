@@ -45,8 +45,11 @@ export class AppComponent {
       id: uuidv4(),
       description,
       done: false,
+      time: new Date(),
+      // change this to server time
+      // remove uuid !!!!!
     };
-    this.service.addItem(newItem).then((res) => {
+    this.service.fireAddItem(newItem).then((res) => {
       console.log(res);
       this.refreshItems();
     });

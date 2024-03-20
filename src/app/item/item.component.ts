@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, inject } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Item } from '../item';
 import { SharedService } from '../shared.service';
@@ -21,14 +21,14 @@ export class ItemComponent {
   saveItem(id: string, description: string) {
     if (!description) return;
     this.editable = false;
-    this.service.editItem(id, description);
+    this.service.fireEditItem(id, description);
   }
 
   toggleDone(id: string, done: boolean) {
-    this.service.toggleItem(id, done);
+    this.service.fireToggleItem(id, done);
   }
 
   delete(id: string) {
-    this.service.deleteItem(id);
+    this.service.fireDeleteItem(id);
   }
 }
