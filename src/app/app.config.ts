@@ -1,6 +1,7 @@
 import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { SharedService } from './shared.service';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDuE25-X1Zp7EDtpHoscJeGxKImGa_cfiI',
@@ -13,6 +14,7 @@ const firebaseConfig = {
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    SharedService,
     importProvidersFrom([
       provideFirebaseApp(() => initializeApp(firebaseConfig)),
       provideFirestore(() => getFirestore()),

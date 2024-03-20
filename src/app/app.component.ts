@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Item } from './item';
 import { ItemComponent } from './item/item.component';
+import { SharedService } from './shared.service';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-root',
@@ -13,14 +15,11 @@ import { ItemComponent } from './item/item.component';
 export class AppComponent {
   title = 'todo-app';
 
+  constructor(private service: SharedService) {}
+
   filter: 'all' | 'active' | 'done' = 'all';
 
-  allItems = [
-    { description: 'eat', done: true },
-    { description: 'sleep', done: false },
-    { description: 'play', done: false },
-    { description: 'laugh', done: false },
-  ];
+  allItems: any[] = [];
 
   get items() {
     if (this.filter === 'all') {
@@ -31,14 +30,25 @@ export class AppComponent {
     );
   }
 
-  addItem(description: string) {
-    this.allItems.unshift({
-      description,
-      done: false,
+  refreshItems() {
+    this.service.getItems().subscribe((res) => {
+      this.allItems = res;
     });
   }
 
-  remove(item: Item) {
-    this.allItems.splice(this.allItems.indexOf(item), 1);
+  ngOnInit() {
+    this.refreshItems();
+  }
+
+  addItem(description: string) {
+    let newItem = {
+      id: uuidv4(),
+      description,
+      done: false,
+    };
+    this.service.addItem(newItem).then((res) => {
+      console.log(res);
+      this.refreshItems();
+    });
   }
 }

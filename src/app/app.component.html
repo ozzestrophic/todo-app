@@ -48,7 +48,7 @@
   </h2>
   <ul>
     <li *ngFor="let i of items">
-      <app-item (remove)="remove(i)" [item]="i"></app-item>
+      <app-item [item]="i"></app-item>
     </li>
   </ul>
 </main>
