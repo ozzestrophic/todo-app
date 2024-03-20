@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Item } from './item';
 import { ItemComponent } from './item/item.component';
 import { SharedService } from './shared.service';
 import { v4 as uuidv4 } from 'uuid';
@@ -46,8 +45,6 @@ export class AppComponent {
       description,
       done: false,
       time: new Date(),
-      // change this to server time
-      // remove uuid !!!!!
     };
     this.service.fireAddItem(newItem).then((res) => {
       console.log(res);
