@@ -1,12 +1,14 @@
 <article class="item">
   <div *ngIf="!editable">
-    <input
-      [id]="item.description"
-      type="checkbox"
-      (change)="toggleDone(item.id, item.done)"
-      [checked]="item.done"
-    />
-    <label [for]="item.description">{{ item.description }}</label>
+    <div class="check-label">
+      <input
+        [id]="item.description"
+        type="checkbox"
+        (change)="toggleDone(item.id, item.done)"
+        [checked]="item.done"
+      />
+      <label [for]="item.description">{{ item.description }}</label>
+    </div>
     <div class="btn-wrapper" *ngIf="!editable">
       <button class="btn" (click)="editable = !editable">Edit</button>
       <button class="btn btn-warn" (click)="delete(item.id)">Delete</button>

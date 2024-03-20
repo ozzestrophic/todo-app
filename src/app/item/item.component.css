@@ -4,10 +4,11 @@
   font-size: 1.2rem;
 }
 .item > div {
-  height: 56px;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: stretch;
+  gap: 1rem;
   background-color: #1e1e1e;
   padding: 0.5rem 1rem;
   border: solid 0.5px rgb(136, 131, 121);
@@ -17,6 +18,12 @@
 .btn-wrapper {
   display: flex;
   gap: 0.5rem;
+}
+
+.check-label {
+  min-height: 40px;
+  display: flex;
+  align-items: center;
 }
 
 .btn {
@@ -61,6 +68,7 @@
 
 .sm-text-input {
   width: 100%;
+  height: 40px;
   padding: 0.75rem 1rem;
   border: 0px solid rgb(136, 131, 121);
   background-color: #000000;
@@ -72,9 +80,18 @@
 
 .edit-div {
   display: flex;
-  height: 56px;
+  flex-direction: column;
   gap: 1rem;
   align-self: center;
+}
+
+@media screen and (min-width: 600px) {
+  .item > div,
+  .edit-div {
+    height: 56px;
+    flex-direction: row;
+    align-items: center;
+  }
 }
 
 /* Custom checkboxes
