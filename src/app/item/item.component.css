@@ -3,25 +3,36 @@
   text-align: left;
   font-size: 1.2rem;
 }
+.item > div {
+  height: 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1e1e1e;
+  padding: 0.5rem 1rem;
+  border: solid 0.5px rgb(136, 131, 121);
+  border-radius: 1rem;
+}
 
 .btn-wrapper {
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
 }
 
 .btn {
   /* menu buttons flexbox styles */
   flex-basis: 49%;
+  height: 40px;
 }
 
 .btn-save {
-  background-color: #000;
-  color: #fff;
-  border-color: #000;
+  background-color: wheat;
+  color: black;
+  border-color: wheat;
 }
 
 .btn-save:hover {
-  background-color: #444242;
+  background-color: rgb(249, 228, 188);
 }
 
 .btn-save:focus {
@@ -34,28 +45,36 @@
 }
 
 .btn-warn {
-  background-color: #b90000;
-  color: #fff;
-  border-color: #9a0000;
+  background-color: #fe7454;
+  color: black;
+  border-color: #fe7454;
 }
 
 .btn-warn:hover {
-  background-color: #9a0000;
+  background-color: #fa7254;
 }
 
 .btn-warn:active {
-  background-color: #e30000;
+  background-color: #fa7557;
   border-color: #000;
 }
 
 .sm-text-input {
   width: 100%;
-  padding: 0.5rem;
-  border: 2px solid #555;
-  display: block;
+  padding: 0.75rem 1rem;
+  border: 0px solid rgb(136, 131, 121);
+  background-color: #000000;
+  color: wheat;
+  border-radius: 2rem;
   box-sizing: border-box;
   font-size: 1rem;
-  margin: 1rem 0;
+}
+
+.edit-div {
+  display: flex;
+  height: 56px;
+  gap: 1rem;
+  align-self: center;
 }
 
 /* Custom checkboxes
@@ -83,8 +102,9 @@ Adapted from https://css-tricks.com/the-checkbox-hack/#custom-designed-radio-but
   top: 0;
   width: 1.25em;
   height: 1.25em;
-  border: 2px solid #ccc;
-  background: #fff;
+  border: 1px solid wheat;
+  border-radius: 16rem;
+  background: #1e1e1e;
 }
 
 /* checked mark aspect */
@@ -96,7 +116,7 @@ Adapted from https://css-tricks.com/the-checkbox-hack/#custom-designed-radio-but
   left: 0.22em;
   font-size: 1.3em;
   line-height: 0.8;
-  color: #0d8dee;
+  color: #fe7454;
   transition: all 0.2s;
   font-family: "Lucida Sans Unicode", "Arial Unicode MS", Arial;
 }

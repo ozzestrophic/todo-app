@@ -1,5 +1,7 @@
 body {
   font-family: Helvetica, Arial, sans-serif;
+  background: #0d0d0d;
+  color: wheat;
 }
 
 .btn-wrapper {
@@ -9,33 +11,36 @@ body {
 }
 
 .btn {
-  color: #000;
-  background-color: #fff;
-  border: 2px solid #cecece;
-  padding: 0.35rem 1rem 0.25rem 1rem;
+  color: wheat;
+  background-color: #1e1e1e;
+  border: 0.5px solid rgb(136, 131, 121);
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
   font-size: 1rem;
 }
 
 .btn:hover {
-  background-color: #ecf2fd;
+  background-color: #2d2d2d;
 }
 
 .btn:active {
-  background-color: #d1e0fe;
+  background-color: #323232;
 }
 
 .btn:focus {
   outline: none;
-  border: black solid 2px;
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: #000;
-  width: 100%;
+  color: black;
+  width: 56px;
+  height: 56px;
+  background-color: #fe7454;
   padding: 0.75rem;
   font-size: 1.3rem;
+  font-weight: 900;
   border: black solid 2px;
+  border-radius: 16rem;
   margin: 1rem 0;
 }
 
