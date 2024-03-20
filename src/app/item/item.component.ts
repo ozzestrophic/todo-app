@@ -18,16 +18,17 @@ export class ItemComponent {
   @Input() item!: Item;
   @Output() remove = new EventEmitter<Item>();
 
-  saveItem(description: string) {
+  saveItem(id: string, description: string) {
     if (!description) return;
     this.editable = false;
-    this.item.description = description;
+    this.service.editItem(id, description);
+  }
+
+  toggleDone(id: string, done: boolean) {
+    this.service.toggleItem(id, done);
   }
 
   delete(id: string) {
-    this.service.deleteItem(id).then((res) => {
-      console.log(res);
-      // this.refreshItems();
-    });
+    this.service.deleteItem(id);
   }
 }

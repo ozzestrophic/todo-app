@@ -6,6 +6,7 @@ import {
   collectionData,
   deleteDoc,
   doc,
+  updateDoc,
 } from '@angular/fire/firestore';
 import { Item } from './item';
 
@@ -28,5 +29,15 @@ export class SharedService {
   deleteItem(id: string) {
     let docRef = doc(this.fs, 'todos/' + id);
     return deleteDoc(docRef);
+  }
+
+  editItem(id: string, description: string) {
+    let docRef = doc(this.fs, 'todos/' + id);
+    return updateDoc(docRef, { description });
+  }
+
+  toggleItem(id: string, done: boolean) {
+    let docRef = doc(this.fs, 'todos/' + id);
+    return updateDoc(docRef, { done: !done });
   }
 }

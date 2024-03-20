@@ -2,7 +2,7 @@
   <input
     [id]="item.description"
     type="checkbox"
-    (change)="item.done = !item.done"
+    (change)="toggleDone(item.id, item.done)"
     [checked]="item.done"
   />
   <label [for]="item.description">{{ item.description }}</label>
@@ -19,12 +19,15 @@
       placeholder="edit item"
       [value]="item.description"
       #editedItem
-      (keyup.enter)="saveItem(editedItem.value)"
+      (keyup.enter)="saveItem(item.id, editedItem.value)"
     />
 
     <div class="btn-wrapper">
       <button class="btn" (click)="editable = !editable">Cancel</button>
-      <button class="btn btn-save" (click)="saveItem(editedItem.value)">
+      <button
+        class="btn btn-save"
+        (click)="saveItem(item.id, editedItem.value)"
+      >
         Save
       </button>
     </div>
